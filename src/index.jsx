@@ -1,28 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createTheme, ThemeProvider } from '@mui/material';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ThemeProvider } from "@mui/material";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#122155',
-      text: '#fafafa',
-      title: '#b9babb',
-    }
-  },
-  typography: {
-    "fontFamily": `"Poppins", "Roboto", "Helvetica", "Arial", sans-serif`
-  }
-});
+import App from "./App";
+import { theme } from "./theme";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./index.css";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
         <App />
-      </ThemeProvider>
+      </LocalizationProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
