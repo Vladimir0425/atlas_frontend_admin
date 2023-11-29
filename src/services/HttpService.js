@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: "http://localhost:3003",
+  baseURL: "http://192.168.128.59:3003",
 });
 
 export class HttpService {
